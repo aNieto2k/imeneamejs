@@ -14,15 +14,22 @@ function loadRss(){
         
     var html;
     var context;
-    var seccion = (location.href.indexOf('pendientes') > -1)?"pendientes":"publicadas";
+
+
+    var seccion = "publicadas";
+    if (location.href.indexOf("pendientes") > -1)
+            seccion = "pendientes";
+
+    if (/#\d+$/.test(location.href))
+            return;
 
     if (seccion == "pendientes"){
         $("#seccion .publicadas").removeClass("active");
         $("#seccion .pendientes").addClass("active");
-    } else {
+    } else if (seccion == "publicadas") {
         $("#seccion .publicadas").addClass("active");
         $("#seccion .pendientes").removeClass("active");
-    }
+    } 
 
     $.getJSON(urls[seccion], function(data){
         context = data.value;

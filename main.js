@@ -6,22 +6,25 @@ var urls = {
 
 }
 
+// Template principal
+var $sourceEl = $("#page_template");
+var template = Handlebars.compile($sourceEl.html());
 
+// Templare para artículos
+Handlebars.registerPartial("article", $("#article_template").html());
+
+// Template para comentarios
+var commentsTemplate = Handlebars.compile($("#comments_template").html());
+
+var context;
 function loadRss(){
-    var $sourceEl = $("#page");
-    var source   = $sourceEl.html();
-    var template = Handlebars.compile(source);
-        
+
     var html;
-    var context;
-
-
+ 
     var seccion = "publicadas";
-    if (location.href.indexOf("pendientes") > -1)
-            seccion = "pendientes";
-
-    if (/#\d+$/.test(location.href))
-            return;
+    if (location.href.indexOf("pendientes") > -1) seccion = "pendientes";
+ 
+    if (/#\d+$/.test(location.href)) return;
 
     if (seccion == "pendientes"){
         $("#seccion .publicadas").removeClass("active");
@@ -38,13 +41,13 @@ function loadRss(){
             context.items[x].description = context.items[x].description.replace(/<\/p>.*$/, '</p>');
         }
         
+        context.items[0].first = true;
         
         var html    = template(context);
         $sourceEl.after(html)
         $("#content").removeClass("loading");
         
         
-        var commentsTemplate = Handlebars.compile($("#comments").html());
         $("p.info").on("click", "a.comments", function(){
             var $this = $(this);
             var id = this.href.replace(/^.*#/,'');

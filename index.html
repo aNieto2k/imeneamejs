@@ -42,9 +42,19 @@
         </div>
       </div>
         <div id="content" class="loading">
-        <script id="page" type="text/x-handlebars-template">
+        <noscript>
+            <h3>
+                Esta aplicación requiere de Javascript para funcionar.
+            </h3>
+        </noscript>
+
+        <script id="page_template" type="text/x-handlebars-template">
             {{#each items}}
-                <article>
+                {{>article}}                
+            {{/each}}
+        </script>
+        <script id="article_template" type="text/x-handlebars-template">
+            <article {{#unless first}}class="oculta"{{/unless}}>
                     <header>
                         <a href="#{{meneame:link_id}}" class="noticia" title="{{title}}">
                         <small>
@@ -61,20 +71,14 @@
                         </p>
                     </section>
                 </article>
-            {{/each}}
-        </script>
-            <script id="comments" type="text/x-handlebars-template">
+            </script>
+            <script id="comments_template" type="text/x-handlebars-template">
                 <header>Comentarios</header>
                     {{#each items}}
                         <article>{{{description}}}</article>
                     {{/each}}
             </script>
             </div>
-        <noscript>
-            <h3>
-                Esta aplicación requiere de Javascript para funcionar.
-            </h3>
-        </noscript>
         <div id="footer">
         <p class="top">
           <a href="#header">

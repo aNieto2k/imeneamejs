@@ -165,9 +165,10 @@ border-bottom: 1px #eee solid;
 
 .comments article:nth-child(2n) {
 	background-color:#eee;
-};
-
+}
 article.oculta section {
-	display: none;
-	border-bottom: 1px #eee solid;
+display:none;
+}
+article.oculta {
+border-bottom:1px #eee solid;
 }

@@ -9,4 +9,4 @@ a.noticia small{display:block}#header #seccion a.publicadas{background:url(i/hea
 #content header a{display:block;padding:1em;background:url(i/flecha.gif) no-repeat 98% center}#footer .top{height:53px;background-color:#ccc}#footer .top a{position:absolute;right:.8em;background:url(i/footer-btn-subir.gif) no-repeat;display:block;width:53px;height:32px;text-indent:-5000px;margin-top:.6em}
 #footer .autor{font-size:.8em;text-align:center;background-color:#eee;padding:1em 0 1em 0}#content section .texto p:nth-child(2n+3){display:none}img.thumbnail{display:none}
 #content.loading{height:100px;width:100%}.loading{background:url(i/ajax-loader.gif) no-repeat 50% 50%}.comments header{font-size:1.5;font-weight:bolder;border-bottom:1px #eee solid}
-.comments article{font-size:.8em}.comments article:nth-child(2n){background-color:#eee};article.oculta section{display:none;border-bottom:1px #eee solid}
+.comments article{font-size:.8em}.comments article:nth-child(2n){background-color:#eee}article.oculta section{display:none}article.oculta{border-bottom:1px #eee solid}

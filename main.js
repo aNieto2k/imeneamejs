@@ -6,15 +6,17 @@ var urls = {
 
 }
 
+
 // Template principal
 var $sourceEl = $("#page_template");
-var template = Handlebars.compile($sourceEl.html());
+
+var template = {
+    page: Handlebars.compile($sourceEl.html()),
+    comments: Handlebars.compile($("#comments_template").html())
+};
 
 // Templare para artículos
 Handlebars.registerPartial("article", $("#article_template").html());
-
-// Template para comentarios
-var commentsTemplate = Handlebars.compile($("#comments_template").html());
 
 var context;
 function loadRss(){
@@ -43,11 +45,19 @@ function loadRss(){
         
         context.items[0].first = true;
         
-        var html    = template(context);
+        var html    = template.page(context);
         $sourceEl.after(html)
         $("#content").removeClass("loading");
+
+        // Toggle de noticias
+        $("article").bind("click", function(){
+            var $this = $(this);
+            if (!$this.hasClass("oculta")){return;}
+            $("article").addClass("oculta");
+            $this.removeClass("oculta");
+        });
         
-        
+        // Commentarios
         $("p.info").on("click", "a.comments", function(){
             var $this = $(this);
             var id = this.href.replace(/^.*#/,'');
@@ -58,17 +68,16 @@ function loadRss(){
                 context = data.value;
             
                 
-                var html    = commentsTemplate(context);
+                var html    = template.comments(context);
                 $comments.find("p.comments").html(html).removeClass("loading");
                 $this.removeClass("comments");
             });  
-        }).on("click", "a.atras", function(){
+        })
+        // Botón de atrás (ocultar comentarios)
+        .on("click", "a.atras", function(){
                         $("p.comments").remove();
                         $(this).addClass("comments").removeClass("atras");
         });
-
-
-
     });     
 
 }

@@ -29,32 +29,26 @@
     </head>
     <body>
       <div id="header">
-        <h1>
-          iMeneame
-        </h1>
+        <h1>iMeneame</h1>
         <div id="seccion">
-          <a href="#pendientes" class="pendientes">
-            Pendientes
-          </a>
-          <a href="#publicadas" class="publicadas active">
-            Publicadas
-          </a>
+          <a href="#pendientes" class="pendientes">Pendientes</a>
+          <a href="#publicadas" class="publicadas active">Publicadas</a>
         </div>
       </div>
         <div id="content" class="loading">
         <noscript>
-            <h3>
-                Esta aplicación requiere de Javascript para funcionar.
-            </h3>
+            <h3>Esta aplicación requiere de Javascript para funcionar.</h3>
         </noscript>
 
         <script id="page_template" type="text/x-handlebars-template">
+          <section id="articles">
             {{#each items}}
                 {{>article}}                
             {{/each}}
+          </section>
         </script>
         <script id="article_template" type="text/x-handlebars-template">
-            <article {{#unless first}}class="oculta"{{/unless}}>
+            <article {{#if @index}}class="oculta"{{/if}}>
                     <header>
                         <a href="#{{meneame:link_id}}" class="noticia" title="{{title}}">
                         <small>
@@ -81,27 +75,12 @@
             </div>
         <div id="footer">
         <p class="top">
-          <a href="#header">
-            Subir
-          </a>
+          <a href="#header">Subir</a>
         </p>
         <p class="autor">
-          <a href="http://www.imeneame.net">
-            iMeneame
-          </a>
-          basado en el 
-          <a href="http://meneame.net/rss2.php">
-            feed oficial de Meneame
-          </a>
+          <a href="http://www.imeneame.net">iMeneame</a>basado en el <a href="http://meneame.net/rss2.php">feed oficial de Meneame</a>
           <br />
-          Desarrollado por 
-          <a href="http://www.anieto2k.com" title="Autor de iMeneame">
-            aNieto2k
-          </a>
-          / Diseño por 
-          <a href="http://www.wydstudios.com/blog">
-            Wydstudios
-          </a>
+          Desarrollado por <a href="http://www.anieto2k.com" title="Autor de iMeneame">aNieto2k</a>/ Diseño por <a href="http://www.wydstudios.com/blog">Wydstudios</a>
         </p>
       </div>
 		  <script src="main.min.js" type="text/javascript"></script>

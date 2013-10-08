@@ -43,9 +43,10 @@ function loadRss(){
             context.items[x].description = context.items[x].description.replace(/<\/p>.*$/, '</p>');
         }
         
-        context.items[0].first = true;
+        //context.items[0].first = true;
         
         var html    = template.page(context);
+        $("#articles").empty();
         $sourceEl.after(html)
         $("#content").removeClass("loading");
 

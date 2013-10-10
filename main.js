@@ -40,7 +40,7 @@ function loadRss(){
         context = data.value;
         
         for (var x in context.items){
-            context.items[x].description = context.items[x].description.replace(/<\/p>.*$/, '</p>');
+            context.items[x].description = context.items[x].description.replace(/<\/p>.*$/, '</p>').replace(/<img.*\/>/, '');
         }
         
         //context.items[0].first = true;

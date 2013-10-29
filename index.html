@@ -21,7 +21,6 @@
         <meta name="viewport" content="initial-scale=0.8; maximum-scale=0.8; user-scalable=no;" />
     
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-		    <script src="handlebars.min.js" type="text/javascript"></script>
         <link rel="apple-touch-icon" href="http://www.anieto2k.com/itouch/imeneame/i/imeneame-webclip.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -42,40 +41,7 @@
         <noscript>
             <h3>Esta aplicación requiere de Javascript para funcionar.</h3>
         </noscript>
-
-        <script id="page_template" type="text/x-handlebars-template">
-          <section id="articles">
-            {{#each items}}
-                {{>article}}                
-            {{/each}}
-          </section>
-        </script>
-        <script id="article_template" type="text/x-handlebars-template">
-            <article id="{{meneame:link_id}}" {{#if @index}}class="oculta"{{/if}}>
-                    <header>
-                        <a href="#{{meneame:link_id}}" class="noticia" title="{{title}}">
-                        <small>
-                            {{meneame:votes}} votos, {{meneame:comments}} comentarios
-                        </small>
-                        {{title}}
-                        </a>
-                    </header>
-                    <section>
-                            {{{description}}}
-                        <p class="info">
-                            <a class="original" href="{{meneame:url}}">noticia original</a>
-                            <a href="#{{meneame:link_id}}" class="comments" title="{{title}}">Ver Comentarios</a>
-                        </p>
-                    </section>
-                </article>
-            </script>
-            <script id="comments_template" type="text/x-handlebars-template">
-                <header>Comentarios</header>
-                    {{#each items}}
-                        <article>{{{description}}}</article>
-                    {{/each}}
-            </script>
-            </div>
+        </div>
         <div id="footer">
         <p class="top">
           <a href="#header">Subir</a>
@@ -86,7 +52,7 @@
           Desarrollado por <a href="http://www.anieto2k.com" title="Autor de iMeneame">aNieto2k</a>/ Diseño por <a href="http://www.wydstudios.com/blog">Wydstudios</a>
         </p>
       </div>
-		  <script src="main.min.js" type="text/javascript"></script>
+		  <script src="all.min.js" type="text/javascript"></script>
       <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

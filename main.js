@@ -8,11 +8,11 @@ var urls = {
 
 
 // Template principal
-var $sourceEl = $("#page_template");
+var $sourceEl = $("#content");
 
 var template = {
-    page: Handlebars.compile($sourceEl.html()),
-    comments: Handlebars.compile($("#comments_template").html())
+    page: Handlebars.templates['article'],
+    comments: Handlebars.templates['comments']
 };
 
 // Templare para artículos
@@ -47,7 +47,7 @@ function loadRss(){
         
         var html    = template.page(context);
         $("#articles").empty();
-        $sourceEl.after(html)
+        $sourceEl.html(html)
         $("#content").removeClass("loading");
 
         // Toggle de noticias

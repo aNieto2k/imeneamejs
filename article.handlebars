@@ -1,0 +1,21 @@
+<section id="articles">
+            {{#each items}}
+                <article id="{{meneame:link_id}}" {{#if @index}}class="oculta"{{/if}}>
+                    <header>
+                        <a href="#{{meneame:link_id}}" class="noticia" title="{{title}}">
+                        <small>
+                            {{meneame:votes}} votos, {{meneame:comments}} comentarios
+                        </small>
+                        {{title}}
+                        </a>
+                    </header>
+                    <section>
+                            {{{description}}}
+                        <p class="info">
+                            <a class="original" href="{{meneame:url}}">noticia original</a>
+                            <a href="#{{meneame:link_id}}" class="comments" title="{{title}}">Ver Comentarios</a>
+                        </p>
+                    </section>
+                </article>               
+            {{/each}}
+          </section>

@@ -530,6 +530,10 @@ function loadRss(){
         .on("click", "a.atras", function(){
                         $("p.comments").remove();
                         $(this).addClass("comments").removeClass("atras");
+        })
+        .on("click", "a.original", function(){
+          window.open(this.href);
+          return false;
         });
     });     
 
